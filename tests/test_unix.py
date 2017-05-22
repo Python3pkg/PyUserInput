@@ -52,14 +52,14 @@ class Event(PyMouseEvent):
         self.scroll_horizontal = None
 
     def move(self, x, y):
-        print("Mouse moved to", x, y)
+        print(("Mouse moved to", x, y))
         self.pos = (x, y)
 
     def click(self, x, y, button, press):
         if press:
-            print("Mouse pressed at", x, y, "with button", button)
+            print(("Mouse pressed at", x, y, "with button", button))
         else:
-            print("Mouse released at", x, y, "with button", button)
+            print(("Mouse released at", x, y, "with button", button))
         self.button = button
         self.press = press
 
@@ -102,7 +102,7 @@ class Test(TestCase):
                     event.reset()
                     mouse.move(*p)
                     time.sleep(0.01)
-                    print('check ', expect_pos(p, size), '=', event.pos)
+                    print(('check ', expect_pos(p, size), '=', event.pos))
                     eq_(expect_pos(p, size), event.pos)
                 # check buttons
                 for btn in buttons:
@@ -110,14 +110,14 @@ class Test(TestCase):
                     event.reset()
                     mouse.press(0, 0, btn)
                     time.sleep(0.01)
-                    print("check button", btn, "pressed")
+                    print(("check button", btn, "pressed"))
                     eq_(btn, event.button)
                     eq_(True, event.press)
                     # release
                     event.reset()
                     mouse.release(0, 0, btn)
                     time.sleep(0.01)
-                    print("check button", btn, "released")
+                    print(("check button", btn, "released"))
                     eq_(btn, event.button)
                     eq_(False, event.press)
                 # check scroll

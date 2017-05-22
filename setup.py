@@ -31,7 +31,7 @@ def dependency_check(dep_list):
         try:
             __import__(dep)
         except ImportError:
-            print('Missing dependency, could not import this module: {0}'.format(dep))
+            print(('Missing dependency, could not import this module: {0}'.format(dep)))
 
 #Check for dependencies
 if sys.platform == 'darwin':  # Mac

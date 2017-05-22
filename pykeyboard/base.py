@@ -147,7 +147,7 @@ class PyKeyboardEventMeta(Thread):
 
     #Make the modifiers dictionary for individual states, setting all to off
     modifiers = {}
-    for key in modifier_bits.keys():
+    for key in list(modifier_bits.keys()):
         modifiers[key] = False
 
     def __init__(self, capture=False):

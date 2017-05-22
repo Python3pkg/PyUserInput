@@ -284,7 +284,7 @@ import string
 UPPER = frozenset('~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?')
 LOWER = frozenset("`1234567890-=qwertyuiop[]\\asdfghjkl;'zxcvbnm,./")
 ORDER = string.ascii_letters + string.digits + ' \b\r\t'
-ALTER = dict(zip('!@#$%^&*()', '1234567890'))
+ALTER = dict(list(zip('!@#$%^&*()', '1234567890')))
 OTHER = {'`': VK_OEM_3,
          '~': VK_OEM_3,
          '-': VK_OEM_MINUS,

@@ -20,13 +20,13 @@ try:
 
     class event(PyMouseEvent):
         def move(self, x, y):
-            print("Mouse moved to", x, y)
+            print(("Mouse moved to", x, y))
 
         def click(self, x, y, button, press):
             if press:
-                print("Mouse pressed at", x, y, "with button", button)
+                print(("Mouse pressed at", x, y, "with button", button))
             else:
-                print("Mouse released at", x, y, "with button", button)
+                print(("Mouse released at", x, y, "with button", button))
 
     e = event()
     #e.capture = True
@@ -38,13 +38,13 @@ except ImportError:
 m = PyMouse()
 try:
 	size = m.screen_size()
-	print("size: %s" % (str(size)))
+	print(("size: %s" % (str(size))))
 
 	pos = (random.randint(0, size[0]), random.randint(0, size[1]))
 except:
 	pos = (random.randint(0, 250), random.randint(0, 250))
 
-print("Position: %s" % (str(pos)))
+print(("Position: %s" % (str(pos))))
 
 m.move(pos[0], pos[1])
 

@@ -50,8 +50,8 @@ def main():
     keyboard = PyKeyboard()
     mouse = AbortMouse()
 
-    input('Press Enter when ready.')
-    print('Typing will begin in {0} seconds...'.format(opts['--pause']))
+    eval(input('Press Enter when ready.'))
+    print(('Typing will begin in {0} seconds...'.format(opts['--pause'])))
     time.sleep(opts['--pause'])
 
     mouse.start()

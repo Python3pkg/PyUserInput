@@ -274,7 +274,7 @@ class PyKeyboardEvent(PyKeyboardEventMeta):
         press_bool = (event.type == X.KeyPress)
 
         #Detect modifier states from event.state
-        for mod, bit in self.modifier_bits.items():
+        for mod, bit in list(self.modifier_bits.items()):
             self.modifiers[mod] = event.state & bit
 
         if keycode in self.all_mod_keycodes:
@@ -342,7 +342,7 @@ class PyKeyboardEvent(PyKeyboardEventMeta):
             char = self.keysym_to_string[keysym]
         except KeyError:
             print('Unable to determine character.')
-            print('Keycode: {0} KeySym {1}'.format(keycode, keysym))
+            print(('Keycode: {0} KeySym {1}'.format(keycode, keysym)))
             return None
         else:
             return char
@@ -474,7 +474,7 @@ class PyKeyboardEvent(PyKeyboardEventMeta):
         Xlib.XK.load_keysym_group('greek')
 
         #Make a standard dict and the inverted dict
-        for string, keysym in Xlib.XK.__dict__.items():
+        for string, keysym in list(Xlib.XK.__dict__.items()):
             if string.startswith('XK_'):
                 string_to_keysym_dict[string[3:]] = keysym
                 keysym_to_string_dict[keysym] = string[3:]
